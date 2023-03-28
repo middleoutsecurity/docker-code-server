@@ -21,7 +21,14 @@ RUN \
     nano \
     net-tools \
     netcat \
+    python3-pip \
+	  python3-dev \
+	  build-essential \
+	  libssl-dev \
+	  libffi-dev \
+	  python3-setuptools \
     sudo && \
+  apt install -y python3-venv && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
