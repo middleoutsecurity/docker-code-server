@@ -90,7 +90,9 @@ Here are some example snippets to help you get started creating a container.
 version: "2.1"
 services:
   code-server:
-    image: lscr.io/linuxserver/code-server:latest
+    #image: lscr.io/linuxserver/code-server:latest
+    build:
+      context: ./docker-code-server
     container_name: code-server
     environment:
       - PUID=1000
@@ -104,6 +106,7 @@ services:
       - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
       - /path/to/appdata/config:/config
+      - /path/to/code:/code
     ports:
       - 8443:8443
     restart: unless-stopped
